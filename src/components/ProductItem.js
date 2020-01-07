@@ -14,7 +14,7 @@ class ProductItem extends Component {
     return result;
   }
   render() {
-    const { product } = this.props;
+    const { product, onAddToCart } = this.props;
     return (
       <div className="col-lg-4 col-md-6 mb-r">
         <div className="card text-center card-cascade narrower">
@@ -45,6 +45,7 @@ class ProductItem extends Component {
                   data-placement="top"
                   title=""
                   data-original-title="Add to Cart"
+                  onClick={() => onAddToCart(product)}
                 >
                   <i className="fa fa-shopping-cart"></i>
                 </a>
@@ -58,7 +59,8 @@ class ProductItem extends Component {
 }
 
 ProductItem.propTypes = {
-  product: PropTypes.object
+  product: PropTypes.object,
+  onAddToCart: PropTypes.func
 };
 
 export default ProductItem;
