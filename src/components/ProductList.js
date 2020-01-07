@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
 class ProductList extends Component {
   render() {
@@ -11,9 +10,5 @@ class ProductList extends Component {
     );
   }
 }
-
-ProductList.propTypes = {
-  products: PropTypes.array
-};
 
 export default ProductList;
