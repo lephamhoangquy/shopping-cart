@@ -2,7 +2,8 @@ module.exports = {
   ActionType: {
     ADD_TO_CART: "ADD_TO_CART",
     INCREASE: "INCREASE",
-    DECREASE: "DECREASE"
+    DECREASE: "DECREASE",
+    REMOVE_PRODUCT_IN_CART: "REMOVE_PRODUCT_IN_CART"
   },
   Message: {
     MSG_ADD_TO_CART_SUCCESS: "Mua hang thanh cong",

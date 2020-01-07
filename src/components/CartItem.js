@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 class CartItem extends Component {
   render() {
-    const { product, quantity, onIncrease, onDecrease } = this.props;
+    const { product, quantity, onIncrease, onDecrease, onRemove } = this.props;
     const totalSubPrice = product.price * quantity;
     return (
       <tr>
@@ -49,6 +49,9 @@ class CartItem extends Component {
             data-placement="top"
             title=""
             data-original-title="Remove item"
+            onClick={() => {
+              onRemove(product.id);
+            }}
           >
             X
           </button>

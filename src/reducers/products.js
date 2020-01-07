@@ -10,7 +10,7 @@ var initialState = [
     inventory: 20
   },
   {
-    id: 12,
+    id: 2,
     name: "Iphone 11 Pro Max",
     image:
       "https://cdn.fptshop.com.vn/Uploads/Originals/2019/9/11/637037687763926758_11-pro-max-xanh.png",

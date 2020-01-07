@@ -8,7 +8,7 @@ import * as actions from "../actions/index";
 
 class CartContainer extends Component {
   render() {
-    const { cart, onIncrease, onDecrease } = this.props;
+    const { cart, onIncrease, onDecrease, onRemove } = this.props;
     const cartItemList =
       cart.length > 0
         ? cart.map((cartItem, index) => (
@@ -18,6 +18,7 @@ class CartContainer extends Component {
               quantity={cartItem.quantity}
               onIncrease={onIncrease}
               onDecrease={onDecrease}
+              onRemove={onRemove}
             />
           ))
         : [];
@@ -46,7 +47,8 @@ CartContainer.propTypes = {
     })
   ).isRequired,
   onIncrease: PropTypes.func,
-  onDecrease: PropTypes.func
+  onDecrease: PropTypes.func,
+  onRemove: PropTypes.func
 };
 
 const mapStateToProps = state => {
@@ -62,6 +64,9 @@ const mapDischpatchToProps = dispatch => {
     },
     onDecrease: product => {
       dispatch(actions.actDecrease(product));
+    },
+    onRemove: id => {
+      dispatch(actions.actRemoveProductInCart(id));
     }
   };
 };

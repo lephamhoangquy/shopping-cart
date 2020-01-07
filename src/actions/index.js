@@ -21,3 +21,10 @@ export const actDecrease = product => {
     product
   };
 };
+
+export const actRemoveProductInCart = id => {
+  return {
+    type: ActionType.REMOVE_PRODUCT_IN_CART,
+    id
+  };
+};

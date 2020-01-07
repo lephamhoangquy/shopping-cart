@@ -37,6 +37,11 @@ const products = (state = initialState, action) => {
       localStorage.setItem("CART", JSON.stringify(state));
       return [...state];
     }
+    case ActionType.REMOVE_PRODUCT_IN_CART: {
+      const { id } = action;
+      _.remove(state, item => item.product.id === id);
+      return [...state];
+    }
     default:
       return [...state];
   }
