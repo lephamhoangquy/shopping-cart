@@ -4,10 +4,11 @@ import Cart from "../components/Cart";
 import CartItem from "../components/CartItem";
 import { connect } from "react-redux";
 import CartResult from "../components/CartResult";
+import * as actions from "../actions/index";
 
 class CartContainer extends Component {
   render() {
-    const { cart } = this.props;
+    const { cart, onIncrease, onDecrease } = this.props;
     const cartItemList =
       cart.length > 0
         ? cart.map((cartItem, index) => (
@@ -15,6 +16,8 @@ class CartContainer extends Component {
               key={index}
               product={cartItem.product}
               quantity={cartItem.quantity}
+              onIncrease={onIncrease}
+              onDecrease={onDecrease}
             />
           ))
         : [];
@@ -41,7 +44,9 @@ CartContainer.propTypes = {
       }).isRequired,
       quantity: PropTypes.number.isRequired
     })
-  ).isRequired
+  ).isRequired,
+  onIncrease: PropTypes.func,
+  onDecrease: PropTypes.func
 };
 
 const mapStateToProps = state => {
@@ -50,4 +55,15 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(CartContainer);
+const mapDischpatchToProps = dispatch => {
+  return {
+    onIncrease: product => {
+      dispatch(actions.actIncrease(product));
+    },
+    onDecrease: product => {
+      dispatch(actions.actDecrease(product));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDischpatchToProps)(CartContainer);

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 class CartItem extends Component {
   render() {
-    const { product, quantity } = this.props;
+    const { product, quantity, onIncrease, onDecrease } = this.props;
     const totalSubPrice = product.price * quantity;
     return (
       <tr>
@@ -23,12 +23,18 @@ class CartItem extends Component {
             <label
               className="btn btn-sm btn-primary
                                   btn-rounded waves-effect waves-light"
+              onClick={() => {
+                onDecrease(product);
+              }}
             >
               <a>—</a>
             </label>
             <label
               className="btn btn-sm btn-primary
                                   btn-rounded waves-effect waves-light"
+              onClick={() => {
+                onIncrease(product);
+              }}
             >
               <a>+</a>
             </label>

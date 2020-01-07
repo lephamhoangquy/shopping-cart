@@ -7,3 +7,17 @@ export const actAddToCart = (product, quantity) => {
     quantity
   };
 };
+
+export const actIncrease = product => {
+  return {
+    type: ActionType.INCREASE,
+    product
+  };
+};
+
+export const actDecrease = product => {
+  return {
+    type: ActionType.DECREASE,
+    product
+  };
+};
